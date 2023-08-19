@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encontre seu Ritmo de Natação</title>
+    <!-- Links para o Bootstrap e Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        .black-background {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4 black-background">Encontre seu Ritmo de Natação</h1>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-lg p-4">
+                    <h2 class="mb-4">Calculadora de Pace</h2>
+                    <form id="paceCalculator">
+                        <div class="form-group">
+                            <label for="distance">Distância (metros)</label>
+                            <input type="number" class="form-control" id="distance" name="distance" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="minutes">Tempo (minutos)</label>
+                            <input type="number" class="form-control" id="minutes" name="minutes" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="seconds">Tempo (segundos)</label>
+                            <input type="number" class="form-control" id="seconds" name="seconds" required>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="calculatePace()">
+                            <i class="fas fa-calculator"></i> Calcular Pace
+                        </button>
+                    </form>
+                    <div class="mt-4">
+                        <p id="paceResult"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-lg p-4">
+                    <h2 class="mb-4">Calculadora de Tempo</h2>
+                    <form id="timeCalculator">
+                        <div class="form-group">
+                            <label for="distanceTime">Distância (metros)</label>
+                            <input type="number" class="form-control" id="distanceTime" name="distanceTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paceMinutes">Pace (minutos)</label>
+                            <input type="number" class="form-control" id="paceMinutes" name="paceMinutes" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paceSeconds">Pace (segundos)</label>
+                            <input type="number" class="form-control" id="paceSeconds" name="paceSeconds" required>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="calculateTime()">
+                            <i class="fas fa-calculator"></i> Calcular Tempo
+                        </button>
+                    </form>
+                    <div class="mt-4">
+                        <p id="timeResult"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Botão "Alvarenga Place" com ícone -->
+        <div class="row justify-content-center">
+            <div class="col-md-2">
+                <a href="https://alvarengamarcel.github.io/" class="btn btn-primary btn-block" target="_blank">
+                    <i class="fas fa-home"></i> Alvarenga Place
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts do Bootstrap, Font Awesome e JavaScript personalizado -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+    <script>
+        function calculatePace() {
+            const distance = parseFloat(document.getElementById("distance").value);
+            const minutes = parseFloat(document.getElementById("minutes").value);
+            const seconds = parseFloat(document.getElementById("seconds").value);
+
+            const timeInSeconds = (minutes * 60) + seconds;
+            const paceSeconds = timeInSeconds / (distance / 100);
+            const paceMinutes = Math.floor(paceSeconds / 60);
+            const paceSecondsRemaining = Math.round(paceSeconds % 60);
+
+            const paceText = `${paceMinutes} minutos e ${paceSecondsRemaining} segundos por 100 metros`;
+            document.getElementById("paceResult").textContent = paceText;
+        }
+
+        function calculateTime() {
+            const distanceTime = parseFloat(document.getElementById("distanceTime").value);
+            const paceMinutes = parseFloat(document.getElementById("paceMinutes").value);
+            const paceSeconds = parseFloat(document.getElementById("paceSeconds").value);
+
+            const paceInSeconds = (paceMinutes * 60) + paceSeconds;
+            const totalTimeSeconds = (distanceTime / 100) * paceInSeconds;
+            const totalTimeMinutes = Math.floor(totalTimeSeconds / 60);
+            const totalTimeSecondsRemaining = Math.round(totalTimeSeconds % 60);
+
+            const timeText = `${totalTimeMinutes} minutos e ${totalTimeSecondsRemaining} segundos para ${distanceTime} metros`;
+            document.getElementById("timeResult").textContent = timeText;
+        }
+    </script>
+</body>
+</html>
