@@ -14,85 +14,71 @@
             border-radius: 5px;
             text-align: center;
         }
-    </style>
-    <style>
-        /* Ajuste para dispositivos móveis */
-        @media (max-width: 768px) {
-            .card {
-                width: 100%;
-            }
+
+        .card {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="jumbotron">
+    <div class="container mt-4">
+        <div class="jumbotron text-center">
             <h1 class="display-4 black-background">Encontre seu Ritmo de Natação</h1>
         </div>
         
-        <div class="row justify-content-center">
-            <div class="col-md-6 mb-4">
-                <div class="card shadow-lg p-4">
-                    <h2 class="mb-4">Calculadora de Pace</h2>
-                    <form id="paceCalculator">
-                        <div class="form-group">
-                            <label for="distance">Distância (metros)</label>
-                            <input type="number" class="form-control" id="distance" name="distance" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="minutes">Tempo (minutos)</label>
-                            <input type="number" class="form-control" id="minutes" name="minutes" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="seconds">Tempo (segundos)</label>
-                            <input type="number" class="form-control" id="seconds" name="seconds" required>
-                        </div>
-                        <button type="button" class="btn btn-primary btn-block" onclick="calculatePace()">
-                            <i class="fas fa-calculator"></i> Calcular Pace
-                        </button>
-                    </form>
-                    <div class="mt-4">
-                        <p id="paceResult"></p>
-                    </div>
+        <div class="card">
+            <h2 class="text-center mb-4">Calculadora de Pace</h2>
+            <form id="paceCalculator">
+                <div class="form-group">
+                    <label for="distance">Distância (metros)</label>
+                    <input type="number" class="form-control" id="distance" name="distance" required>
                 </div>
+                <div class="form-group">
+                    <label for="minutes">Tempo (minutos)</label>
+                    <input type="number" class="form-control" id="minutes" name="minutes" required>
+                </div>
+                <div class="form-group">
+                    <label for="seconds">Tempo (segundos)</label>
+                    <input type="number" class="form-control" id="seconds" name="seconds" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="calculatePace()">
+                    <i class="fas fa-calculator"></i> Calcular Pace
+                </button>
+            </form>
+            <div class="mt-4">
+                <p id="paceResult"></p>
             </div>
         </div>
         
-        <div class="row justify-content-center">
-            <div class="col-md-6 mb-4">
-                <div class="card shadow-lg p-4">
-                    <h2 class="mb-4">Calculadora de Tempo</h2>
-                    <form id="timeCalculator">
-                        <div class="form-group">
-                            <label for="distanceTime">Distância (metros)</label>
-                            <input type="number" class="form-control" id="distanceTime" name="distanceTime" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="paceMinutes">Pace (minutos)</label>
-                            <input type="number" class="form-control" id="paceMinutes" name="paceMinutes" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="paceSeconds">Pace (segundos)</label>
-                            <input type="number" class="form-control" id="paceSeconds" name="paceSeconds" required>
-                        </div>
-                        <button type="button" class="btn btn-primary btn-block" onclick="calculateTime()">
-                            <i class="fas fa-calculator"></i> Calcular Tempo
-                        </button>
-                    </form>
-                    <div class="mt-4">
-                        <p id="timeResult"></p>
-                    </div>
+        <div class="card">
+            <h2 class="text-center mb-4">Calculadora de Tempo</h2>
+            <form id="timeCalculator">
+                <div class="form-group">
+                    <label for="distanceTime">Distância (metros)</label>
+                    <input type="number" class="form-control" id="distanceTime" name="distanceTime" required>
                 </div>
+                <div class="form-group">
+                    <label for="paceMinutes">Pace (minutos)</label>
+                    <input type="number" class="form-control" id="paceMinutes" name="paceMinutes" required>
+                </div>
+                <div class="form-group">
+                    <label for="paceSeconds">Pace (segundos)</label>
+                    <input type="number" class="form-control" id="paceSeconds" name="paceSeconds" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="calculateTime()">
+                    <i class="fas fa-calculator"></i> Calcular Tempo
+                </button>
+            </form>
+            <div class="mt-4">
+                <p id="timeResult"></p>
             </div>
         </div>
         
         <!-- Botão "Alvarenga Place" com ícone -->
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4">
-                <a href="https://alvarengamarcel.github.io/" class="btn btn-primary btn-block" target="_blank">
-                    <i class="fas fa-home"></i> Alvarenga Place
-                </a>
-            </div>
+        <div class="text-center mt-4">
+            <a href="https://alvarengamarcel.github.io/" class="btn btn-primary" target="_blank">
+                <i class="fas fa-home"></i> Alvarenga Place
+            </a>
         </div>
     </div>
     
